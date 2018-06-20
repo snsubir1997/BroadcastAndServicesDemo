@@ -3,14 +3,16 @@ package com.example.subir.servicedemo;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.media.AudioManager;
+import android.widget.SeekBar;
+import android.widget.Toast;
 
 public class MusicService extends Service {
 
     MediaPlayer mp ;
-    AudioManager audioManager;
+    static int pos;
 
 
     @Nullable
@@ -19,6 +21,7 @@ public class MusicService extends Service {
         return null;
     }
 
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -26,9 +29,30 @@ public class MusicService extends Service {
     }
 
     @Override
-    public void onStart(Intent intent, int startId) {
-        super.onStart(intent, startId);
-        mp.start();
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        if (intent.getStringExtra("serviceTag").equals("onPlay")) {
+            mp.seekTo(pos);
+            mp.start();
+        }
+        else if(intent.getStringExtra("serviceTag").equals("onPause")){
+            mp.pause();
+            pos = mp.getCurrentPosition();
+        }
+        else if(intent.getStringExtra("serviceTag").equals("onLoop")){
+            if(mp.isLooping()){
+                mp.setLooping(false);
+                Toast.makeText(getApplicationContext(),"NOT LOOPING", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(getApplicationContext(),"LOOPING", Toast.LENGTH_SHORT).show();
+                mp.setLooping(true);
+            }
+        }
+        else{
+
+        }
+
+            return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
@@ -36,21 +60,7 @@ public class MusicService extends Service {
         super.onDestroy();
         if (mp.isPlaying()){
             mp.stop();
-        }
-    }
-
-    public void onPause(){
-        if (mp.isPlaying()) {
-            mp.pause();
-        }
-    }
-
-    public void onLoop(){
-        if(mp.isLooping()){
-            mp.setLooping(false);
-        }
-        else{
-            mp.setLooping(true);
+            pos = 0;
         }
     }
 }

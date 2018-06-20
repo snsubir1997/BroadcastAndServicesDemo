@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305"
+        app:layout_constraintVertical_bias="0.219"
         app:srcCompat="@drawable/friends_album_art" />
 
     <TextView
@@ -35,28 +35,28 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498"
-        app:srcCompat="@drawable/ic_right_arrow"
-        android:focusable="true" />
+        app:layout_constraintVertical_bias="0.411"
+        app:srcCompat="@drawable/ic_right_arrow" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/previous"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498"
-        app:srcCompat="@drawable/ic_left_arrow"
-        android:focusable="true" />
+        app:layout_constraintVertical_bias="0.411"
+        app:srcCompat="@drawable/ic_left_arrow" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/play"
@@ -91,14 +91,14 @@
         android:layout_width="64sp"
         android:layout_height="64sp"
         android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintHorizontal_bias="0.853"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.771"
-        app:srcCompat="@drawable/ic_volume_up_black_24dp"
-        android:focusable="true" />
+        app:srcCompat="@drawable/ic_volume_up_black_24dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/volDown"
@@ -108,7 +108,7 @@
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintHorizontal_bias="0.853"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.964"
@@ -123,7 +123,7 @@
         android:onClick="loopClicked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.771"
@@ -138,9 +138,19 @@
         android:onClick="stopClicked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.964"
         app:srcCompat="@drawable/ic_stop" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="346dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632" />
 </android.support.constraint.ConstraintLayout>

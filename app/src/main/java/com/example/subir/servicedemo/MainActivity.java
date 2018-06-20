@@ -8,9 +8,6 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    MusicService musicService;
-    MediaPlayer mp ;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,14 +16,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void playClicked(View v)
     {
-        Intent i = new Intent(MainActivity.this,MusicService.class);
-        startService(i);
+                Intent i = new Intent(MainActivity.this, MusicService.class);
+                i.putExtra("serviceTag","onPlay");
+                startService(i);
     }
 
-    public void pauseClicked()
+    public void pauseClicked(View v)
     {
-        Intent i = new Intent(MainActivity.this,MusicService.class);
-        startService(i);
+            Intent i = new Intent(MainActivity.this, MusicService.class);
+            i.putExtra("serviceTag","onPause");
+            startService(i);
     }
 
     public void stopClicked(View v)
@@ -35,8 +34,10 @@ public class MainActivity extends AppCompatActivity {
         stopService(i);
     }
 
-    public void loopClicked()
+    public void loopClicked(View v)
     {
-        //onLoop();
+        Intent i = new Intent(MainActivity.this,MusicService.class);
+        i.putExtra("serviceTag","onLoop");
+        startService(i);
     }
 }
